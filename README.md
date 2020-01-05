@@ -1,2 +1,7 @@
 # eezybotarm
-ROS EEZYbotARM (https://www.thingiverse.com/thing:1015238) 
+ROS EEZYbotARM 
+
+https://www.thingiverse.com/thing:1015238 
+
+https://www.instructables.com/id/EEZYbotARM/
+
