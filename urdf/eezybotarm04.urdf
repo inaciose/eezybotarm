@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<robot name="visual">
+    
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder length="0.01" radius="0.047" />
+            </geometry>
+            <material name="black" />
+            <origin rpy="0 0 0" xyz="0 0 0" />
+        </visual>
+    </link>
+    
+    <link name="arm_base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://eezybotarm/meshes/EBA_01.00.010_basement.STL" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="0 0 0" xyz="-0.047 -0.047 0" />
+        </visual>
+    </link>
+
+    <link name="arm_rotate_base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://eezybotarm/meshes/EBA_01.00.011_round_plate.STL" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="0 0 0" xyz="-0.036 -0.036 0.031" />
+        </visual>    
+    </link>
+
+    <link name="arm_forward_drive_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://eezybotarm/meshes/EBA_01.00.001.STL" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="0 0 0" xyz="-0.026 -0.042 0.035" />
+        </visual>
+    </link>
+    
+    <link name="arm_vertical_drive_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://eezybotarm/meshes/EBA_01.00.004_forward_drive_arm.STL" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="-1.5708 -1.5708 0" xyz="-0.02 -0.007 -0.004" />
+        </visual>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <axis xyz="0 0 -1" />
+        <limit effort="1000.0" lower="0.0" upper="3.1416" velocity="1.0" />
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base_link" />
+        <child link="arm_base_link" />
+    </joint>
+
+    <joint name="rotate_base_joint" type="revolute">
+        <axis xyz="0 0 1" />
+        <limit effort="1000.0" lower="0.0" upper="3.1416" velocity="1.0" />
+        <origin rpy="0 0 0" xyz="0.001 0.003 0" />
+        <parent link="arm_base_link" />
+        <child link="arm_rotate_base_link" />
+    </joint>
+
+    <joint name="forward_drive_joint" type="fixed">
+        <axis xyz="1 0 0" />
+        <limit effort="1000.0" lower="0" upper="3.1416" velocity="1.0" />
+        <origin rpy="0 0 3.1416" xyz="0 0 0" />
+        <parent link="arm_rotate_base_link" />
+        <child link="arm_forward_drive_link" />
+    </joint>
+
+    <joint name="vertical_drive_joint" type="revolute">
+        <axis xyz="1 0 0" />
+        <limit effort="1000.0" lower="0" upper="3.1416" velocity="1.0" />
+        <origin rpy="0 0 0" xyz="0 0 0.066" />
+        <parent link="arm_rotate_base_link" />
+        <child link="arm_vertical_drive_link" />
+    </joint>
+
+    <material name="orange">
+        <color rgba="0.57 0.17 0.0 1" />
+    </material>
+    <material name="white">
+        <color rgba="0.8 0.8 0.8 1.0" />
+    </material>
+    <material name="black">
+        <color rgba="0 0 0 0.50" />
+    </material>
+</robot>
