@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<robot
+  name="ebamk1">
+
+<!-- BASE LINK -->
+  <link name="base_link">
+    <visual>
+      <origin
+        xyz="0 0 0.0185"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.037" radius="0.035"/>
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+<!-- JOINT 1 -->
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.05215"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-0.7854" upper="0.7854"/>
+      <!--   [-45,45]-->
+  </joint>
+
+<!-- LINK_1 -->
+  <link name="link_1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.033 0.033" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+<!-- JOINT 2 -->
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.01515"
+      rpy="0 0 0" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-0.6109" upper="0.9599"/>
+      <!--   [-35,55]-->
+  </joint>
+
+<!-- LINK_2 -->
+  <link name="link_2">
+    <visual>
+      <origin
+        xyz="0 0 0.0425"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.095" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+  </link>
+
+<!-- JOINT 3 -->
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="0 0 0.095"
+      rpy="0 0 0" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-1.2217" upper="0.3491"/>
+      <!--   [-70,20]-->
+  </joint>
+
+
+<!-- LINK_3 -->
+  <link name="link_3">
+    <visual>
+      <origin
+        xyz="0 0.0225 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.0075 0.127 0.01" />
+      </geometry>
+      <material name="green" />
+    </visual>
+  </link>
+
+<!-- MATERIAL -->
+  <material name="red">
+      <color rgba="1 0 0 1" />
+  </material>
+    <material name="green">
+      <color rgba="0 1 0 1" />
+  </material>
+    <material name="blue">
+      <color rgba="0 0 1 1" />
+  </material>
+</robot>

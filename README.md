@@ -1,5 +1,11 @@
 # eezybotarm ROS
+
 ROS for EEZYbotARM MK1 and MK2
+
+This package was replaced by the following one and will be removed in the next cleaning.
+- https://github.com/inaciose/ebamk1_description
+- https://github.com/inaciose/ebamk2_description
+- https://github.com/inaciose/rosarm_control
 
 This repository is intended to contain software aimed at exploiting the eezybotarm robotic arms on ROS. 
 

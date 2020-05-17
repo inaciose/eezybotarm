@@ -1,34 +1,20 @@
 <?xml version="1.0"?>
-
-<robot
-  name="ebamk1">
-
-<!-- BASE LINK -->
+<robot name="ebamk1">
   <link name="base_link">
     <visual>
-      <origin
-        xyz="0 0 0.0185"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0.016" rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.037" radius="0.035"/>
+        <cylinder length="0.032" radius="0.035"/>
       </geometry>
-      <material name="red" />
+      <material name="blue"/>
     </visual>
   </link>
 
-<!-- JOINT 1 -->
-  <joint
-    name="joint_1"
-    type="revolute">
-    <origin
-      xyz="0 0 0.05215"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="link_1" />
-    <axis
-      xyz="0 0 1" />
+  <joint name="joint_1" type="revolute">
+    <origin xyz="0 0 0.049" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_1" />
+    <axis xyz="0 0 1" />
     <limit
       effort="0"
       velocity="0"
@@ -36,32 +22,21 @@
       <!--   [-45,45]-->
   </joint>
 
-<!-- LINK_1 -->
   <link name="link_1">
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.01 0.033 0.033" />
+        <box size="0.01 0.034 0.034" />
       </geometry>
       <material name="red" />
     </visual>
   </link>
 
-<!-- JOINT 2 -->
-  <joint
-    name="joint_2"
-    type="revolute">
-    <origin
-      xyz="0 0 0.01515"
-      rpy="0 0 0" />
-    <parent
-      link="link_1" />
-    <child
-      link="link_2" />
-    <axis
-      xyz="1 0 0" />
+  <joint name="joint_2" type="revolute">
+    <origin xyz="0 0 0.017" rpy="0 0 0" />
+    <parent link="link_1" />
+    <child link="link_2" />
+    <axis xyz="1 0 0" />
     <limit
       effort="0"
       velocity="0"
@@ -69,32 +44,21 @@
       <!--   [-35,55]-->
   </joint>
 
-<!-- LINK_2 -->
   <link name="link_2">
     <visual>
-      <origin
-        xyz="0 0 0.0425"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
       <geometry>
-        <box size="0.01 0.01 0.095" />
+        <box size="0.01 0.01 0.08" />
       </geometry>
       <material name="blue" />
     </visual>
   </link>
 
-<!-- JOINT 3 -->
-  <joint
-    name="joint_3"
-    type="revolute">
-    <origin
-      xyz="0 0 0.095"
-      rpy="0 0 0" />
-    <parent
-      link="link_2" />
-    <child
-      link="link_3" />
-    <axis
-      xyz="1 0 0" />
+  <joint name="joint_3" type="revolute">
+    <origin xyz="0 0 0.08" rpy="0 0 0" />
+    <parent link="link_2" />
+    <child link="link_3" />
+    <axis xyz="1 0 0" />
     <limit
       effort="0"
       velocity="0"
@@ -102,8 +66,6 @@
       <!--   [-70,20]-->
   </joint>
 
-
-<!-- LINK_3 -->
   <link name="link_3">
     <visual>
       <origin
@@ -112,18 +74,59 @@
       <geometry>
         <box size="0.0075 0.127 0.01" />
       </geometry>
-      <material name="green" />
+      <material name="red" />
     </visual>
   </link>
 
-<!-- MATERIAL -->
+  <joint name="joint_4" type="revolute">
+    <origin xyz="0 0.085 0" rpy="0 0 0" />
+    <parent link="link_3" />
+    <child link="link_4" />
+    <axis xyz="1 0 0" />
+    <limit
+      effort="0"
+      velocity="0"
+      lower="-0.7854" upper="1.2217"/>
+      <!--   [-45,70]-->
+  </joint>
+
+  <link name="link_4">
+    <visual>
+      <origin
+        xyz="0 0.005 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.005" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+  <joint name="joint_5" type="fixed">
+    <origin xyz="0 0.01 0" rpy="0 0 0" />
+    <parent link="link_4" />
+    <child link="link_5" />
+    <axis xyz="1 0 0" />
+  </joint>
+
+  <link name="link_5">
+    <visual>
+      <origin
+        xyz="0 0.025 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.05 0.005" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
   <material name="red">
-      <color rgba="1 0 0 1" />
+    <color rgba="1 0 1 1"/>
   </material>
-    <material name="green">
-      <color rgba="0 1 0 1" />
+
+  <material name="blue">
+    <color rgba="0 0 1 1"/>
   </material>
-    <material name="blue">
-      <color rgba="0 0 1 1" />
-  </material>
+
 </robot>
